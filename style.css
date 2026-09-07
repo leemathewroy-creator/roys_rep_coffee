@@ -1,0 +1,261 @@
+/* =========================
+   1. Variables
+   ========================= */
+
+:root {
+    --brand-color: #8B5E3C;
+    --dark-ink: #333333;
+    --muted-grey: #777777;
+    --light-background: #FFECCB;
+    --card-background: #FFE0AC;
+}
+
+
+/* =========================
+   2. Base Styles
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--dark-ink);
+    background-color: var(--light-background);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--dark-ink);
+}
+
+p {
+    color: var(--dark-ink);
+}
+
+
+/* =========================
+   3. Layout Regions
+   ========================= */
+
+header {
+    background-color: var(--brand-color);
+    padding: 20px;
+}
+
+section p {
+    text-align: center;
+    color: var(--dark-ink);
+}
+
+header h1 {
+    text-align: center;
+    margin: 10px 0 15px;
+    color: var(--light-background);
+}
+
+header p {
+    text-align: center;
+    color: var(--light-background);
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav a {
+    color: var(--light-background);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--muted-grey);
+}
+
+main {
+    padding: 30px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+main section {
+    margin-bottom: 35px;
+}
+
+main h2 {
+    text-align: center;
+}
+
+footer {
+    background-color: var(--dark-ink);
+    color: var(--light-background);
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    color: var(--light-background);
+    margin: 0;
+}
+
+
+/* =========================
+   4. Components
+   ========================= */
+
+
+/* Product Cards */
+
+.product-card {
+    font-family: Roboto, Arial, sans-serif;
+    background-color: var(--card-background);
+    border: 1px solid var(--muted-grey);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 0 auto 20px;
+    max-width: 500px;
+    text-align: center;
+    border-left: 10px solid var(--brand-color);
+}
+
+.product-card h3 {
+    margin-top: 0;
+    font-size: 24px;
+    color: var(--brand-color);
+}
+
+.product-card img {
+    display: block;
+    margin: 0 auto;
+}
+
+.product-card a {
+    color: var(--brand-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.product-card a:hover {
+    color: var(--muted-grey);
+}
+
+
+/* Product Detail Images */
+
+main section img {
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* Product Detail Tables */
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: var(--light-background);
+}
+
+th,
+td {
+    padding: 10px 15px;
+    border: 1px solid var(--muted-grey);
+    text-align: center;
+}
+
+th {
+    background-color: var(--brand-color);
+    color: var(--light-background);
+}
+
+
+/* Lists */
+
+main ul {
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+
+main li {
+    margin: 5px 0;
+}
+
+main p {
+    text-align: center;
+    color: var(--dark-ink);
+}
+
+
+/* Forms */
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+fieldset {
+    padding: 20px;
+    margin: 15px 0;
+    background-color: var(--card-background);
+    border: 3px solid var(--brand-color);
+    border-radius: 10px;
+}
+
+legend {
+    font-weight: bold;
+    color: var(--brand-color);
+}
+
+input,
+select,
+textarea {
+    font-family: Arial, sans-serif;
+    padding: 8px;
+    border: 1px solid var(--muted-grey);
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid var(--brand-color);
+    outline-offset: 2px;
+}
+
+button {
+    background-color: var(--brand-color);
+    color: var(--light-background);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--dark-ink);
+}
