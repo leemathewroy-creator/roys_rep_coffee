@@ -1,261 +1,540 @@
 /* =========================
-   1. Variables
+   Web Fonts
+   ========================= */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap");
+
+
+/* =========================
+   Variables
    ========================= */
 
 :root {
-    --brand-color: #8B5E3C;
-    --dark-ink: #333333;
-    --muted-grey: #777777;
-    --light-background: #FFECCB;
-    --card-background: #FFE0AC;
+    --brand-color: rgb(87, 49, 27);
+    --brand-hover: rgb(168, 86, 38);
+
+    --card-background: rgb(99, 52, 26);
+    --product-card: rgb(40, 18, 6);
+    --card-layer: rgb(27, 12, 4);
+
+    --text-color: white;
+    --overlay: rgba(0, 0, 0, 0.3);
+
+    --border-color: rgb(120, 78, 50);
+    --input-background: white;
+
+    --card-radius: 10px;
+
+    --font-heading: "Lora", Georgia, serif;
+    --font-body: "DM Sans", Arial, sans-serif;
 }
 
 
 /* =========================
-   2. Base Styles
+   General Styles
    ========================= */
 
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    color: var(--dark-ink);
-    background-color: var(--light-background);
+html { 
+    scroll-behavior: smooth;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+body {
+    margin: 0;
+
+    background-color: var(--brand-color);
+    color: var(--text-color);
+
+    font-family: var(--font-body);
+    line-height: 1.6;
 }
 
 h1,
 h2,
-h3 {
-    color: var(--dark-ink);
-}
-
-p {
-    color: var(--dark-ink);
-}
-
-
-/* =========================
-   3. Layout Regions
-   ========================= */
-
-header {
-    background-color: var(--brand-color);
-    padding: 20px;
-}
-
-section p {
-    text-align: center;
-    color: var(--dark-ink);
-}
-
-header h1 {
-    text-align: center;
-    margin: 10px 0 15px;
-    color: var(--light-background);
-}
-
-header p {
-    text-align: center;
-    color: var(--light-background);
-}
-
-nav {
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
+h3,
 nav a {
-    color: var(--light-background);
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: var(--muted-grey);
+    font-family: var(--font-heading);
 }
 
 main {
+    background-color: var(--card-background);
     padding: 30px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
-main section {
-    margin-bottom: 35px;
-}
-
-main h2 {
-    text-align: center;
-}
-
-footer {
-    background-color: var(--dark-ink);
-    color: var(--light-background);
-    padding: 20px;
-    text-align: center;
-}
-
-footer p {
-    color: var(--light-background);
-    margin: 0;
+img {
+    max-width: 100%;
 }
 
 
 /* =========================
-   4. Components
+   Header
    ========================= */
 
+header {
+    position: relative;
 
-/* Product Cards */
+    background-image: url(coffee-stop_header.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-.product-card {
-    font-family: Roboto, Arial, sans-serif;
-    background-color: var(--card-background);
-    border: 1px solid var(--muted-grey);
-    border-radius: 10px;
-    padding: 16px;
-    margin: 0 auto 20px;
-    max-width: 500px;
-    text-align: center;
-    border-left: 10px solid var(--brand-color);
+    min-height: 300px;
+    padding: 80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-.product-card h3 {
+header::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: var(--overlay);
+}
+
+header > * {
+    position: relative;
+    z-index: 1;
+}
+
+.header-text {
+    font-size: 20px;
+}
+
+.header-text h1 {
     margin-top: 0;
-    font-size: 24px;
-    color: var(--brand-color);
+}
+
+
+/* =========================
+   Navigation
+   ========================= */
+
+nav ul {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    display: block;
+
+    text-decoration: none;
+    color: var(--text-color);
+
+    padding: 5px;
+
+    font-size: large;
+
+    position: relative;
+
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 2px;
+
+    background-color: var(--border-color);
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--border-color);
+}
+
+nav a:hover::after,
+nav a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================
+   Home Page
+   ========================= */
+
+main > section p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cover {
+    max-width: 900px;
+    margin: 0 auto 40px;
+
+    text-align: center;
+}
+
+.cover img {
+    display: block;
+
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+
+    margin: 20px auto;
+    border-radius: var(--card-radius);
+}
+
+
+/* =========================
+   Product Grid
+   ========================= */
+
+.product-grid {
+    display: flex;
+
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 24px;
+}
+
+
+/* =========================
+   Product Cards
+   ========================= */
+
+   .product-card {
+    position: relative;
+
+    background-color: var(--product-card);
+
+    flex: 1 1 240px;
+    max-width: 350px;
+
+    text-align: center;
+
+    border-radius: var(--card-radius);
+
+    padding-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: -11px 11px 0 var(--card-layer);
 }
 
 .product-card img {
     display: block;
-    margin: 0 auto;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
 }
+
+.product-card h3 {
+    margin: 18px 10px 8px;
+}
+
+.product-card p {
+    margin: 10px 20px;
+    flex: 1;
+}
+
 
 .product-card a {
-    color: var(--brand-color);
     text-decoration: none;
-    font-weight: bold;
+    color: var(--text-color);
+
+    margin-top: auto;
 }
 
-.product-card a:hover {
-    color: var(--muted-grey);
+
+/* =========================
+   Buttons
+   ========================= */
+
+button {
+    background-color: var(--brand-color);
+
+    color: var(--text-color);
+
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 1em;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease,
+                transform 0.2s ease,
+                box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--brand-hover);
+
+    transform: translateY(-2px) scale(1.05);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+button:active {
+    transform: translateY(1px) scale(0.95);
+
+    box-shadow: none;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--brand-hover);
+    outline-offset: 2px;
 }
 
 
-/* Product Detail Images */
+/* =========================
+   General Sections
+   ========================= */
 
-main section img {
+main > section {
+    max-width: 900px;
+
+    margin: 0 auto 30px;
+    padding: 25px;
+
+    background-color: var(--product-card);
+
+    border-radius: var(--card-radius);
+}
+
+main > section h2 {
+    margin-top: 0;
+}
+
+h2 {text-align: center;}
+
+
+/* =========================
+   Product Details
+   ========================= */
+
+.product-details {
+    text-align: center;
+}
+
+section {
+    text-align: center;
+}
+
+.product-details img {
     display: block;
-    margin: 0 auto;
+
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+
+    margin: 20px auto;
+
+    border-radius: var(--card-radius);
 }
 
 
-/* Product Detail Tables */
+/* =========================
+   Tables
+   ========================= */
 
 table {
+    width: 100%;
+    max-width: 800px;
+
     margin: 0 auto;
+
     border-collapse: collapse;
-    background-color: var(--light-background);
 }
 
 th,
 td {
-    padding: 10px 15px;
-    border: 1px solid var(--muted-grey);
+    padding: 12px;
+
+    border: 1px solid var(--border-color);
+
     text-align: center;
 }
 
 th {
     background-color: var(--brand-color);
-    color: var(--light-background);
 }
 
 
-/* Lists */
+/* =========================
+   product details Lists
+   ========================= */
 
-main ul {
+ul {
+    margin: 0 auto;
     padding: 0;
     text-align: center;
     list-style: none;
 }
 
-main li {
-    margin: 5px 0;
-}
-
-main p {
-    text-align: center;
-    color: var(--dark-ink);
-}
-
-
-/* Forms */
+/* =========================
+   Forms
+   ========================= */
 
 form {
     max-width: 600px;
+
     margin: 0 auto;
-    text-align: center;
 }
 
 fieldset {
-    padding: 20px;
     margin: 15px 0;
-    background-color: var(--card-background);
-    border: 3px solid var(--brand-color);
-    border-radius: 10px;
+
+    padding: 20px;
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+
 }
 
 legend {
+    padding: 0 10px;
+
     font-weight: bold;
-    color: var(--brand-color);
+
+    color: var(--border-color);
+}
+
+label {
+    color: var(--text-color);
 }
 
 input,
 select,
 textarea {
-    font-family: Arial, sans-serif;
-    padding: 8px;
-    border: 1px solid var(--muted-grey);
+    max-width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+
+    background-color: var(--card-background);
+    color: var(--text-color);
 }
 
 textarea {
     width: 100%;
-    box-sizing: border-box;
+
+    resize: vertical;
 }
 
 input:focus,
-textarea:focus,
-select:focus {
-    outline: 3px solid var(--brand-color);
-    outline-offset: 2px;
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--brand-hover);
 }
 
-button {
+
+/* =========================
+   Contact Page
+   ========================= */
+
+main > section p {
+    max-width: 800px;
+}
+
+
+/* =========================
+   Footer
+   ========================= */
+
+footer {
     background-color: var(--brand-color);
-    color: var(--light-background);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+
+    text-align: center;
+
+    padding: 20px;
 }
 
-button:hover {
-    background-color: var(--dark-ink);
+
+/* =========================
+   Smaller Screens
+   ========================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 40px 20px;
+
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .product-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    main > section {
+        padding: 20px 15px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}
+
+
+/* =========================
+   Reduced Motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms;
+
+        animation-duration: 0.01ms;
+    }
 }
