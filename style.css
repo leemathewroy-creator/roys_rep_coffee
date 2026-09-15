@@ -10,8 +10,8 @@
    ========================= */
 
 :root {
-    --brand-color: rgb(87, 49, 27);
-    --brand-hover: rgb(168, 86, 38);
+    --brand-color: rgb(80, 42, 20);
+    --brand-hover: rgb(59, 32, 16);
 
     --card-background: rgb(99, 52, 26);
     --product-card: rgb(40, 18, 6);
@@ -20,7 +20,7 @@
     --text-color: white;
     --overlay: rgba(0, 0, 0, 0.3);
 
-    --border-color: rgb(120, 78, 50);
+    --border-color: rgb(109, 75, 52);
     --input-background: white;
 
     --card-radius: 10px;
@@ -76,7 +76,7 @@ img {
 header {
     position: relative;
 
-    background-image: url(coffee-stop_header.jpg);
+    background-image: url(royss-rep-coffee_header.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
